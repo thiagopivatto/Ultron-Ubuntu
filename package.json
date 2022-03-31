@@ -10,7 +10,7 @@
   "author": "Thiago Pivatto",
   "license": "Apache-2.0",
   "dependencies": {
-    "@ffmpeg-installer/ffmpeg": "1.0.20",
+    "@ffmpeg-installer/ffmpeg": "1.1.0",
     "@open-wa/wa-automate": "4.33.1",
     "@open-wa/wa-decrypt": "4.4.0",
     "@vitalets/google-translate-api": "7.0.0",
@@ -29,6 +29,7 @@
     "g-i-s": "2.1.6",
     "genius-lyrics": "4.2.9",
     "google-it": "1.6.2",
+    "imgur": "2.1.4",
     "instagram-url-direct": "1.0.9",
     "moment-timezone": "0.5.31",
     "nedb-async": "0.1.6",
