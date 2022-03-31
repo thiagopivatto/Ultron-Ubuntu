@@ -1,11 +1,11 @@
 # Ignorar node_modules
 node_modules
+#Ignorar node-persist
+.node-persist
 # Ignorar Session data
 *.data.json
 # Ignorar package-lock
 package-lock.json
-#Ignorar node-persist
-.node-persist
 #Ignorar .env
 *.env
 #Ignorar arquivo de teste

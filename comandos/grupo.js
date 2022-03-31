@@ -27,68 +27,6 @@ module.exports = grupo = async(client,message) => {
 
         switch(command){
 
-
-
-
-
-            case "!bloquear":
-                var usuariosBloqueados = []
-                if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin , id)
-                if(quotedMsg){
-                    usuariosBloqueados.push(quotedMsgObj.author)
-                } else if(mentionedJidList.length > 1) {
-                    usuariosBloqueados = mentionedJidList
-                } else {
-                    var numeroInserido = body.slice(10).trim()
-                    if(numeroInserido.length == 0) return await client.reply(from, erroComandoMsg(command), id)
-                    usuariosBloqueados.push(numeroInserido.replace(/\W+/g,"")+"@c.us")
-                }
-                for (var usuario of usuariosBloqueados){
-                    if(await client.getContact(usuario)){
-                        if(ownerNumber == usuario.replace(/@c.us/g, '')){
-                            await client.sendTextWithMentions(from, criarTexto(msgs_texto.admin.bloquear.erro_dono, usuario.replace(/@c.us/g, '')))
-                        } else {
-                            if(blockNumber.includes(usuario)) {
-                                await client.sendTextWithMentions(from, criarTexto(msgs_texto.admin.bloquear.ja_bloqueado, usuario.replace(/@c.us/g, '')))
-                            } else {
-                                client.contactBlock(usuario)
-                                await client.sendTextWithMentions(from, criarTexto(msgs_texto.admin.bloquear.sucesso, usuario.replace(/@c.us/g, '')))
-                            }
-                        }
-                    } else {
-                        await client.reply(from, criarTexto(msgs_texto.admin.bloquear.erro, usuario.replace("@c.us","")), id)
-                    }
-                }
-                break  
-                
-                case "!desbloquear":
-                    let usuariosDesbloqueados = []
-                    if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin , id)
-                    if(quotedMsg){
-                        usuariosDesbloqueados.push(quotedMsgObj.author)
-                    } else if(mentionedJidList.length > 1) {
-                        usuariosDesbloqueados = mentionedJidList
-                    } else {
-                        var numeroInserido = body.slice(13).trim()
-                        if(numeroInserido.length == 0) return await client.reply(from, erroComandoMsg(command), id)
-                        usuariosDesbloqueados.push(numeroInserido.replace(/\W+/g,"")+"@c.us")
-                    }
-                    for (var usuario of usuariosDesbloqueados){
-                        if(!blockNumber.includes(usuario)) {
-                            await client.sendTextWithMentions(from, criarTexto(msgs_texto.admin.desbloquear.ja_desbloqueado, usuario.replace(/@c.us/g,'')))
-                        } else {
-                            client.contactUnblock(usuario)
-                            await client.sendTextWithMentions(from, criarTexto(msgs_texto.admin.desbloquear.sucesso, usuario.replace(/@c.us/g,'')))
-                        }
-                    }
-                    break
-
-
-
-
-
-
-
             case '!regras':
                 var grupoInfo = await client.getGroupInfo(groupId), grupoFoto = await client.getProfilePicFromServer(groupId), grupoDescricao = grupoInfo.description || msgs_texto.grupo.regras.sem_descrição
                 if(grupoFoto){

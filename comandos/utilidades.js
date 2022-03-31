@@ -52,24 +52,6 @@ module.exports = utilidades = async(client,message) => {
                 }
                 break
 
-            case "!ddi":
-                var DDI = null
-                if (quotedMsg) {
-                    let DDI = quotedMsgObj.author.slice(0, 2)
-                } else if (args.length > 1 && args[1].length == 4) {
-                    if (args[1].length != 4) return client.reply(from, msgs_texto.utilidades.ddi.erro_ddi, id)
-                    DDI = args[1]
-                } else {
-                    return client.reply(from, erroComandoMsg(command), id)
-                }
-                try {
-                    var resposta = await api.obterInfoDDI(DDI)
-                    client.reply(from, resposta, id)
-                } catch (err) {
-                    client.reply(from, err.message, id)
-                }
-                break
-
             case "!audio":
                 if(args.length === 1) return client.reply(from, erroComandoMsg(command), id)
                 var efeitosSuportados = ['estourar','x2', 'reverso', 'grave', 'agudo', 'volume'], tipoEfeito = body.slice(7).trim()
@@ -122,17 +104,6 @@ module.exports = utilidades = async(client,message) => {
                     client.reply(from, err.message, id)
                 }
                 break
-
-            //case "!clima":
-            //    if(args.length === 1) return client.reply(from, erroComandoMsg(command),id)
-            //    try{
-            //        var usuarioTexto = body.slice(7).trim(), clima = await api.obterClima(usuarioTexto)
-            //        var respostaClimaTexto = criarTexto(msgs_texto.utilidades.clima.resposta, clima.cidade, clima.temperatura, clima.dia, clima.descricao, clima.umidade)
-            //        client.reply(from, respostaClimaTexto, id)
-            //    } catch(err){
-            //        client.reply(from, err.message, id)
-            //    }
-            //    break
 
             case "!clima":
                 if (args.length === 1) return client.reply(from, erroComandoMsg(command), id)
@@ -285,19 +256,6 @@ module.exports = utilidades = async(client,message) => {
                 }
                 break;
 
-            case '!noticiasus':
-                try {
-                    var listaNoticias = await api.obterNoticiasUS()
-                    var respostaNoticias = msgs_texto.utilidades.noticiasus.resposta_titulo
-                    for (let noticia of listaNoticias) {
-                        respostaNoticias += criarTexto(msgs_texto.utilidades.noticiasus.resposta_itens, noticia.titulo, noticia.descricao || "Sem descrição", noticia.url)
-                    }
-                    await client.reply(from, respostaNoticias, id)
-                } catch (err) {
-                    await client.reply(from, err.message, id)
-                }
-                break;
-
             case '!calc':
                 if(args.length === 1) return client.reply(from, erroComandoMsg(command) ,id)
                 var usuarioExpressaoMatematica = body.slice(6).trim()
@@ -310,16 +268,50 @@ module.exports = utilidades = async(client,message) => {
                 }
                 break
 
-            case "!acao":
-                if (args.length === 1) return client.reply(from, erroComandoMsg(command), id)
-                try {
-                    var usuarioTexto = await api.obterAcao(usuarioTexto)
-                    var respostaAcaoTexto = criarTexto(msgs_texto.utilidades.acao.resposta, acao.texto)
-                    client.reply(from, respostaAcaoTexto, id)
-                } catch (err) {
-                    client.reply(from, err.message, id)
-                }
-                break
+                // NOVOS COMANDOS
+
+                case '!noticiasus':
+                    try {
+                        var listaNoticias = await api.obterNoticiasUS()
+                        var respostaNoticias = msgs_texto.utilidades.noticiasus.resposta_titulo
+                        for (let noticia of listaNoticias) {
+                            respostaNoticias += criarTexto(msgs_texto.utilidades.noticiasus.resposta_itens, noticia.titulo, noticia.descricao || "Sem descrição", noticia.url)
+                        }
+                        await client.reply(from, respostaNoticias, id)
+                    } catch (err) {
+                        await client.reply(from, err.message, id)
+                    }
+                    break;
+
+                case "!ddi":
+                    var DDI = null
+                    if (quotedMsg) {
+                        let DDI = quotedMsgObj.author.slice(0, 2)
+                    } else if (args.length > 1 && args[1].length == 4) {
+                        if (args[1].length != 4) return client.reply(from, msgs_texto.utilidades.ddi.erro_ddi, id)
+                        DDI = args[1]
+                    } else {
+                        return client.reply(from, erroComandoMsg(command), id)
+                    }
+                    try {
+                        var resposta = await api.obterInfoDDI(DDI)
+                        client.reply(from, resposta, id)
+                    } catch (err) {
+                        client.reply(from, err.message, id)
+                    }
+                    break
+
+                case "!acao":
+                    if (args.length === 1) return client.reply(from, erroComandoMsg(command), id)
+                    try {
+                        var usuarioTexto = await api.obterAcao(usuarioTexto)
+                        var respostaAcaoTexto = criarTexto(msgs_texto.utilidades.acao.resposta, acao.texto)
+                        client.reply(from, respostaAcaoTexto, id)
+                    } catch (err) {
+                        client.reply(from, err.message, id)
+                    }
+                    break
+
 
         }
     } catch(err){

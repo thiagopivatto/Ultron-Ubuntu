@@ -43,8 +43,6 @@
         "!img"
     ],
     "grupo":[
-        "!desbloquear",
-        "!bloquear",
         "!destravar",
         "!status",
         "!fotogrupo",
@@ -100,16 +98,19 @@
         "!gadometro",
         "!bafometro",
         "!top5",
-        "!top",
         "!par",
-        "!trisal",
         "!malacos",
+
+        "!top",
+        "!trisal",
         "!gato",
         "!fch",
         "!jacometro",
         "!bolametro"
     ],
     "admin":[
+        "!desbloquear",
+        "!bloquear",
         "!sair",
         "!pvliberado",
         "!bcmdglobal",

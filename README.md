@@ -1,60 +1,60 @@
 # Ultron-Ubuntu
 
+Guia de instalação do BOT para Whatsapp com diversas funcionalidades!
+
 REQUERIMENTOS (Windows):
 Instalar GIT: https://git-scm.com/download/win
 Instalar Node (LTS): https://nodejs.org/en/
 Instalar Google Chrome: https://www.google.com/intl/pt-BR/chrome/
 
 REQUERIMENTOS (Linux):
-
 Deixar o sistema operacional atualizado:
-sudo apt update
-sudo apt upgrade
+`sudo apt update`
+`sudo apt upgrade`
 
 Instalar Git:
-sudo add-apt-repository ppa:git-core/ppa && sudo apt update
-sudo apt install git
+`sudo add-apt-repository ppa:git-core/ppa && sudo apt update`
+`sudo apt install git`
 
 Instalar Node (LTS):
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-. ~/.bashrc
-nvm list-remote
-
-Selecione a última versão estável (LTS):
-nvm install v16.14.2 
+`curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash`
+`. ~/.bashrc`
+`nvm list-remote`
+Selecione a última versão estável (LTS), no momento a versão mais atual é a 16.14.2:
+`nvm install v16.14.2`
 
 Instalar Google Chrome:
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-sudo apt install google-chrome-stable
+`wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -`
+`sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'`
+`sudo apt install google-chrome-stable`
 
 Instalar última versão do npm:
-npm install -g npm@latest
+`npm install -g npm@latest`
 
 Isso tudo é necessário para o bot funcionar corretamente.
 
-1 - Clone este projeto OU faça download da ultima release :
+**1) Clone este projeto OU faça download da ultima release:**
 Para clonar, digite os comandos abaixo no Terminal do seu sistema:
 
-git clone https://github.com/thiagopivatto/Ultron-Ubuntu.git
-cd Ultron-Ubuntu
+`git clone https://github.com/thiagopivatto/Ultron-Ubuntu.git`
+`cd Ultron-Ubuntu`
 
 
-2 - Instale as dependências :
+**2) Instale as dependências:**
 Antes de executar o comando abaixo, tenha certeza que você está no diretório do projeto que você clonou!
 
-npm i
+`npm i`
 
 
-3 - Uso :
+**3) Uso:**
 Dentro da pasta do projeto após ter realizado todos os passos anteriores, execute este comando.
 
-npm start
+`npm start`
 
 Se for a sua primeira vez executando escaneie o QR Code com o seu celular (No modo BETA que não exige conexão com o celular) e digite no terminal SEU número de telefone COM CÓDIGO DO PAÍS no terminal. Ele irá encerrar o bot e você deverá inicia-lo novamente.
 
 
-4 - Funcionamento :
+**4) Funcionamento:**
 Após todos os passos anteriores feitos, seu bot já deve estar iniciando normalmente, use os comandos abaixo para visualizar os comandos disponíveis.
 
 !menu - Dá acesso ao MENU PRINCIPAL.
@@ -68,24 +68,24 @@ Obs: Se você deseja utilizar os comandos !noticias (noticias atuais), !qualmusi
 Sugestão: Caso você esteja rodando o BOT em uma VM, execute os seguintes comandos para que o BOT siga em execução mesmo com o terminal fechado:
 
 Instalar tmux:
-sudo apt install tmux
+`sudo apt install tmux`
 
 Criar uma sessão no tmux:
-tmux new -s nome_da_sessao
+`tmux new -s nome_da_sessao`
 
 Sair da sessão:
 Ctrl B + D
 
 Voltar a sessão:
-tmux attach-session -t nome_da_sessao
+`tmux attach-session -t nome_da_sessao`
 
 
-5 - Obtenha as Chaves de APIs:
+**5) Obtenha as Chaves de APIs:**
 
 Primeiramente crie as chaves API. Para informações detalhadas sobre como obter as chaves do NewsAPI(Notícias), ACRCloud(Reconhecimento de Músicas) e DeepAI(Detector de Nudez e Pornografia) abra o arquivo "CHAVESAPI.md" na raiz do projeto com um editor de textos de sua preferência e siga o passo a passo corretamente.
 
 
-6 - Configuração do arquivo .env:
+**6) Configuração do arquivo .env:**
 
 Após a criação das chaves de API, abra o arquivo .env na raiz do projeto e edite manualmente :
     #############  DADOS DO BOT ############# 
@@ -109,7 +109,7 @@ Após a criação das chaves de API, abra o arquivo .env na raiz do projeto e ed
 Obs: Se o seu sistema for MAC, habilite a exibição de arquivos ocultos para exibir o .env na raiz do projeto.
 
 
-7 - Recursos Principais:
+**7) Recursos Principais:**
 Figurinhas
 Criador de Sticker
 ✅	Foto para Sticker
