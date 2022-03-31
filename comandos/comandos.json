@@ -99,14 +99,15 @@
         "!bafometro",
         "!top5",
         "!par",
+        "!fch",
         "!malacos",
 
         "!top",
         "!trisal",
         "!gato",
-        "!fch",
         "!jacometro",
-        "!bolametro"
+        "!bolametro",
+        "!fernandometro"
     ],
     "admin":[
         "!desbloquear",

@@ -274,6 +274,19 @@ module.exports = diversao = async(client,message) => {
                         await client.reply(from, respostaTexto, idResposta)       
                         break
 
+                    case '!fernandometro':
+                        if (!isGroupMsg) return await client.reply(from, msgs_texto.permissao.grupo, id)
+                        if(!quotedMsg && mentionedJidList.length === 0) return await client.reply(from, erroComandoMsg(command) , id)
+                        if(mentionedJidList.length > 1) return await client.reply(from, msgs_texto.diversao.fernandometro.apenas_um , id)
+                        var respostas = msgs_texto.diversao.fernandometro.respostas 
+                        var indexAleatorio = Math.floor(Math.random() * respostas.length), idResposta = null, alvo = null
+                        if (mentionedJidList.length == 1) idResposta = id, alvo = mentionedJidList[0].replace(/@c.us/g, '')
+                        else idResposta = quotedMsgObj.id, alvo = quotedMsgObj.author.replace(/@c.us/g, '')
+                        if(ownerNumber == alvo) indexAleatorio = 0
+                        var respostaTexto = criarTexto(msgs_texto.diversao.fernandometro.resposta, respostas[indexAleatorio])
+                        await client.reply(from, respostaTexto, idResposta)       
+                        break
+
 
                     // EM DESENVOLVIMENTO - INICIO
                     case "!vddoudsf":
