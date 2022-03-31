@@ -15,6 +15,8 @@ const { ClientRequest } = require('http');
 
 // MAIN COMMIT
 
+// Commit Teste
+
 module.exports = admin = async(client,message) => {
     try{
         const {id, from, sender, isGroupMsg, t, chat, caption, type, mimetype, isMedia, quotedMsg, quotedMsgObj, mentionedJidList } = message
