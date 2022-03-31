@@ -2,7 +2,7 @@
 node_modules
 # Ignorar Session data
 *.data.json
-# Ignorar package-lok
+# Ignorar package-lock
 package-lock.json
 #Ignorar node-persist
 .node-persist
