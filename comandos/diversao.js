@@ -101,10 +101,10 @@ module.exports = diversao = async(client,message) => {
                 await client.sendFileFromUrl(from, malacosFotoURL, 'malacos.jpg', 'Somos o problema', id)
                 break
 
-            // case '!gato':
-            //     const gato = "https://i.imgur.com/mPoHCoS.gif"
-            //     await client.sendStickerfromUrl(from, gato, 'gato.gif', id)
-            //     break
+            case '!gato':
+                const gato = "https://i.imgur.com/mPoHCoS.gif"
+                await client.sendStickerfromUrl(from, gato, 'gato.gif', id)
+                break
 
             case "!roletarussa":
 			case '!roulette':
