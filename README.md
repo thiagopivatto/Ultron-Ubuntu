@@ -16,7 +16,7 @@ Instalar Git: <br>
 `sudo add-apt-repository ppa:git-core/ppa && sudo apt update` <br>
 `sudo apt install git` <br><br>
 
-Instalar Node (LTS):
+Instalar Node (LTS):<br>
 `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash` <br>
 `. ~/.bashrc` <br>
 `nvm list-remote` <br>
