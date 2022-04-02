@@ -1,6 +1,6 @@
 {
   "name": "Ultron-Ubuntu",
-  "version": "1.17.2",
+  "version": "1.0.0",
   "description": "Bot brasileiro para Whatsapp com diversas utilidades para o dia-a-dia.",
   "main": "app",
   "scripts": {
