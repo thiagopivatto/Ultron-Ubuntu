@@ -243,6 +243,27 @@ module.exports = utilidades = async(client,message) => {
                 }
                 break
 
+            case '!falar':
+                var usuarioTexto = '', idMensagem = id
+                if (args.length === 1) {
+                    return client.reply(from, erroComandoMsg(command) ,id)
+                } else if(quotedMsg  && quotedMsg.type == 'chat'){
+                    usuarioTexto = (args.length == 2) ? quotedMsg.body : body.slice(8).trim()
+                } else {
+                    usuarioTexto = body.slice(8).trim()
+                }
+                if (!usuarioTexto) return client.reply(from, msgs_texto.utilidades.voz.texto_vazio , id)
+                if (usuarioTexto.length > 100000) return client.reply(from, msgs_texto.utilidades.voz.texto_longo, id)
+                if(quotedMsg) idMensagem = quotedMsgObj.id
+                var idioma = body.slice(5, 7).toLowerCase()
+                try{
+                    var respostaAudio = await api.textoParaVozIBM(idioma, usuarioTexto)
+                    client.sendPtt(from, respostaAudio, idMensagem)
+                } catch(err){
+                    client.reply(from, err.message, id)
+                }
+                break
+
             case '!noticias':
                 try{
                     var listaNoticias = await api.obterNoticias()

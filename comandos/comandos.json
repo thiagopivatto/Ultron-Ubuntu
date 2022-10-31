@@ -101,14 +101,14 @@
         "!par",
         "!fch",
         "!malacos",
-
         "!top",
         "!trisal",
         "!gato",
         "!jacometro",
         "!bolametro",
         "!fernandometro",
-        "!simih 1 / 0"
+        "!simi",
+        "!simih"
     ],
     "admin":[
         "!desbloquear",

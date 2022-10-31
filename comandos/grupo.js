@@ -630,7 +630,7 @@ module.exports = grupo = async(client,message) => {
                 break
 
             case '!promover':
-                //if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin, id)
+                if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin, id)
                 if (!isBotGroupAdmins) return client.reply(from, msgs_texto.permissao.bot_admin, id)
                 var usuariosSelecionados = [], respostaUsuarios = ''
                 if(mentionedJidList.length > 0) usuariosSelecionados = mentionedJidList
@@ -650,7 +650,7 @@ module.exports = grupo = async(client,message) => {
                 break
 
             case '!rebaixar':
-                //if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin, id)
+                if (!isGroupAdmins) return client.reply(from, msgs_texto.permissao.apenas_admin, id)
                 if (!isBotGroupAdmins) return client.reply(from, msgs_texto.permissao.bot_admin, id)
                 var usuariosSelecionados = [], respostaUsuarios = ''
                 if(mentionedJidList.length > 0) usuariosSelecionados = mentionedJidList

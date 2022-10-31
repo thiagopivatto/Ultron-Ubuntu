@@ -13,7 +13,7 @@ const msgs_texto = require("./lib/msgs")
 const recarregarContagem = require("./lib/recarregarContagem")
 const {botStart} = require('./lib/bot')
 const {verificarEnv} = require('./lib/env')
-
+// const {insert, response} = require('./lib/api.js')
 
 const start = async (client = new Client()) => {
     try{
@@ -82,7 +82,6 @@ const start = async (client = new Client()) => {
                     client.contactBlock(call.peerJid)
                 })
             }))
-
         } 
     } catch(err) {
         //Faça algo se der erro em alguma das funções acima
