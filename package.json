@@ -1,5 +1,5 @@
 {
-  "name": "Ultron-Ubuntu",
+  "name": "ultron",
   "version": "1.0.0",
   "description": "Bot brasileiro para Whatsapp com diversas utilidades para o dia-a-dia.",
   "main": "app",
@@ -48,7 +48,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thiagopivatto/Ultron-Ubuntu.git"
+    "url": "git+https://github.com/thiagopivatto/Ultron_2.0.git"
   },
   "keywords": [
     "whatsapp",
