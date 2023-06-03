@@ -20,6 +20,7 @@ module.exports = diversao = async (client, message, insert, response, simih, sam
         const isBotGroupAdmins = isGroupMsg ? groupAdmins.includes(botNumber + '@c.us') : false
         const groupOwner = isGroupMsg ? chat.groupMetadata.owner : ''
         const {simih} = require('../lib/api')
+        const openai = require('openai');
 
         const { insert, response } = require('../lib/simi');
         const samih = JSON.parse(fs.readFileSync('./database/json/simi.json'));
@@ -368,11 +369,18 @@ module.exports = diversao = async (client, message, insert, response, simih, sam
                     await client.sendTextWithMentions(from, '1 para ativar, 0 para desativar, lerdao vc em KKKKK')
                     }
                     break
-    
+
+                case '!falae':
+                    if (!quotedMsg && mentionedJidList.length === 0) return await client.reply(from, erroComandoMsg(command), id)    
+                    try{
+                        var usuarioTexto = body.slice(10).trim() = await api.obterResultadoAI(usuarioTexto)
+                        respostaAI = criarTexto(msgs_texto.diversao.falae.resposta)
+                        await client.reply(from, respostaAI, id)
+                    } catch(err){
+                        await client.reply(from, err.message ,id)
+                    }   
+                    break
                     
-    
-    
-    
                 // EM DESENVOLVIMENTO - INICIO
                 case "!vddoudsf":
                     if (!isGroupMsg) return await client.reply(from, msgs_texto.permissao.grupo, id)
